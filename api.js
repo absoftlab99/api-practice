@@ -14,3 +14,21 @@ fetch('https://jsonplaceholder.typicode.com/photos')
             container.appendChild(div);
         }
     }
+
+    fetch('https://jsonplaceholder.typicode.com/todos')
+.then(response => response.json())
+.then(todo => helloTodo(todo));
+
+    const helloTodo = todos =>{
+        console.log(todo);
+        const container = document.getElementById('todo');
+        for(const todo of todos){
+            const table = document.createElement('tr');
+            table.innerHTML = `            
+                    <td>${todo.id}</td>
+                    <td>${todo.title}</td>
+                    <td class="text-center">${todo.completed}</td>
+            `
+            container.appendChild(table);
+    }
+}
